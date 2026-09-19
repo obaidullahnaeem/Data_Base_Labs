@@ -4,7 +4,7 @@ Use obaid_281147487 ;
 -- only crete columbs 
 CREATE TABLE Student
 (
-PersonID varchar(255),
+PersonID varchar(255),  -- datatype is string and length is 255
 LastName varchar(255),
 FirstName varchar(255),
 Age varchar(255),
@@ -12,6 +12,7 @@ City varchar(255)
 );
 
 Select * From Student ;
+-- select all values from the table
 
 
 INSERT INTO Student VALUES
