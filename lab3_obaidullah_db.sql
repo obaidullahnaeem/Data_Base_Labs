@@ -37,6 +37,7 @@ from Students;
 
 select distinct City,Department
 from Students;
+--both occurance are unique
 
 select *
 from Students
@@ -130,3 +131,4 @@ order by FeePaid desc;
 select top 3 *
 from Members 
 order by FeePaid desc;
+
