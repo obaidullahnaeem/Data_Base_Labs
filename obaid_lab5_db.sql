@@ -23,12 +23,30 @@ insert into dbo.Products values
 ('bottle', 'assesory', 35 , 10);
 
 
+
+select  catagory ,count(catagory) as [nigger]
+from  Products
+group by catagory 
+having count(catagory) >2;
+-- skips rows with null init --
+
+select catagory, count(*) as [TotalProducts]
+from Products
+group by catagory
+having count(*) > 2;
+
+
+
+
+
+
+
 select * from Products;
 drop table Products;
 
 select min(price) as MinPrice from Products;
 
-select max(price) as MinPrice from Products;
+select max(price) as MaxPrice from Products;
 
 select count(*) as ToalProducts from Products;
 
@@ -51,7 +69,7 @@ select max(quantity) as [HighestAssesoryPrice]
 from Products
 where catagory='assesory';
 
---k
+--k  total quantity of products in each category
 select catagory , sum(quantity) as [HigestQuantityinCatagories]
 from Products
 group by catagory
