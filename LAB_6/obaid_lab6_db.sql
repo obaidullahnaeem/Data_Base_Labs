@@ -211,7 +211,23 @@ VALUES
 ('Zoya Sheikh', 'Islamabad', 1400.99, 100.99, '2026-02-05'),
 ('Danish Iqbal', 'Peshawar', 600.45, 0.00, '2024-12-01');
 
-SELECT * FROM Participants;
+SELECT * FROM Participants;  
+--ROUND(max(FeePaid) - min(Discount), 0) AS Paymentrange 
+
+SELECT 
+    UPPER(City) AS City,
+    COUNT(*) AS ParticipantCount,
+    MIN(LEN(ParticipantName )) AS ShortestNameLength,
+    MAX(LEN(ParticipantName)) AS LongestNameLength
+FROM Participants
+GROUP BY City
+HAVING COUNT(*) >= 2
+   AND MIN(LENGTH(Name)) <> MAX(LENGTH(Name));
+
+
+
+
+
 
 SELECT UPPER(City) AS CityInCaps 
 FROM Participants; 
@@ -245,8 +261,10 @@ CAST(84.65 AS INT) AS IntegerValue;
 --TASK 9  Calculate and convert participant fees 
 
 --a
-SELECT ROUND(FeePaid - Discount, 0) AS RoundedNetFee
-from Participants;
+SELECT ROUND(max(FeePaid) - min(Discount), 0) AS Paymentrange
+from Participants
+
+order by desc;
 
 --b
 SELECT ceiling(FeePaid) AS CeilingFee
